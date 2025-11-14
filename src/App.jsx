@@ -4,32 +4,37 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App () {
-    const products = [{id: 1, name: "boots", price: 54, description: "Best boots ever!", isLegal: true},
-        {id: 2, name: "lindt", price: 12, description: "Best chocolate ever!", isLegal: true},
+    const products = [{id: 1, name: "boots", price: 54, description: "Best boots ever", isLegal: true},
+        {id: 2, name: "lindt", price: 12, description: "Tasty Swiss chocolate", isLegal: true},
         {id:3, name: "matcha", price:23, description: "Delicious high-quality matcha", isLegal: true},
         {id:4, name: "LSD", price:99, description: "High-quality reality escape", isLegal: false}
-    ];
+    ]
     function handleButtonClick(){
         console.log("Someone clicked the button!")
     }
     return (
         <div>
             <h1>Demo-React</h1>
-            <ProductListComponent products = {products} click = {handleButtonClick()}/>
+            <ProductListComponent products = {products} click = {handleButtonClick}/>
         </div>
     )
 }
-function ProductListComponent(props){
-    const products = props.products;
+function ProductListComponent(props, showLegal = false){
+    const products = props.products.filter(product => product.isLegal === showLegal);
+
+    const onClick = props.click;
     if (products.length === 0) {
         return <p>The List is empty. There must be at least one element.</p>
     }
     return (
-        <ul>
-            {products.map(product => (
-                <li key = {product.id}>{product.name}</li>
-            ))}
-        </ul>
+        <div>
+            <ul>
+                {products.map(product => (
+                    <li key = {product.id}>{product.name}: {product.price}€, {product.description}</li>
+                ))}
+            </ul>
+            <button onClick={onClick}>Click me!</button>
+        </div>
     )
 }
 export default App;
