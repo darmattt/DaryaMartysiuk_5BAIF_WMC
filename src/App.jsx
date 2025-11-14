@@ -32,6 +32,7 @@ function ProductListComponent(props){
         </ul>
     )
 }
+export default App;
 
 
 
