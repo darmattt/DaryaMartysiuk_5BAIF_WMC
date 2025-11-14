@@ -1,6 +1,6 @@
-const products = [{id: 1, name: "boots", price: 54, description: "Best boots ever", isLegal: true},
-    {id: 2, name: "lindt", price: 7, description: "Tasty Swiss chocolate", isLegal: true},
-    {id:3, name: "matcha", price:15, description: "Delicious high-quality matcha", isLegal: true},
+const products = [{id: 1, name: "Boots", price: 54, description: "Best boots ever", isLegal: true},
+    {id: 2, name: "Lindt", price: 7, description: "Tasty Swiss chocolate", isLegal: true},
+    {id:3, name: "Matcha", price:15, description: "Delicious high-quality matcha", isLegal: true},
     {id:4, name: "LSD", price:99, description: "High-quality reality escape", isLegal: false}
 ]
 
@@ -11,7 +11,8 @@ for (let product of products){
 }
 //deklarativ
 const priceFilterD = products.filter(product => product.price >= 10 && product.price<= 20);
-// console.log(priceFilterI);
+console.log(priceFilterI);
+console.log(priceFilterD);
 
 //imperativ
 const verdoppeltI = []
@@ -23,7 +24,8 @@ for(let product of products){
 //deklarativ
 const verdoppeltD = products.filter(product => product.price<=10)
     .map(product => {return {...product, price: product.price*2}})
-// console.log(verdoppeltD)
+console.log(verdoppeltI)
+console.log(verdoppeltD)
 
 
 const obj = [1,2,3,4,5]
@@ -31,17 +33,22 @@ const arr = {id:1, name: "matcha", price:15, description: "Delicious high-qualit
 //SPREAD
 const objs = [...obj]
 const arrs = {...arr}
-// console.log(arrs)
+console.log(arrs)
+console.log(objs)
 //REST
 const [first, second, ...rest] = obj
 const {name, ...resta} = arr
-// console.log(name)
-// console.log(resta)
+console.log(first)
+console.log(rest)
+console.log(name)
+console.log(resta)
 //DESTRUCTURING
 const [a,b] = obj
 const {id, description} = arr
-// console.log(id)
-// console.log(description)
+console.log(a)
+console.log(b)
+console.log(id)
+console.log(description)
 
 
 function sum(prods){

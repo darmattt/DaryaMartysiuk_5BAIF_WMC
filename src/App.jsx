@@ -4,9 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App () {
-    const products = [{id: 1, name: "boots", price: 54, description: "Best boots ever", isLegal: true},
-        {id: 2, name: "lindt", price: 12, description: "Tasty Swiss chocolate", isLegal: true},
-        {id:3, name: "matcha", price:23, description: "Delicious high-quality matcha", isLegal: true},
+    const products = [{id: 1, name: "Boots", price: 54, description: "Best boots ever", isLegal: true},
+        {id: 2, name: "Lindt", price: 12, description: "Tasty Swiss chocolate", isLegal: true},
+        {id:3, name: "Matcha", price:23, description: "Delicious high-quality matcha", isLegal: true},
         {id:4, name: "LSD", price:99, description: "High-quality reality escape", isLegal: false}
     ]
     function handleButtonClick(){
@@ -15,14 +15,15 @@ function App () {
     return (
         <div>
             <h1>Demo-React</h1>
-            <ProductListComponent products = {products} click = {handleButtonClick}/>
+            <ProductListComponent products = {products} click = {handleButtonClick} showLegal={true}/>
         </div>
     )
 }
-function ProductListComponent(props, showLegal = false){
+function ProductListComponent(props){
+    const showLegal = props.showLegal;
     const products = props.products.filter(product => product.isLegal === showLegal);
-
     const onClick = props.click;
+
     if (products.length === 0) {
         return <p>The List is empty. There must be at least one element.</p>
     }
