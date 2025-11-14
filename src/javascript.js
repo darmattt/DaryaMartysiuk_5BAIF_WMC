@@ -28,23 +28,26 @@ console.log(verdoppeltI)
 console.log(verdoppeltD)
 
 
-const obj = [1,2,3,4,5]
-const arr = {id:1, name: "matcha", price:15, description: "Delicious high-quality matcha", isLegal: true}
+const arr = [1,2,3,4,5]
+const obj = {id:1, name: "matcha", price:15, description: "Delicious high-quality matcha", isLegal: true}
+console.log(arr)
+console.log(obj)
 //SPREAD
-const objs = [...obj]
-const arrs = {...arr}
-console.log(arrs)
-console.log(objs)
+const arrCopy = [...arr]
+const objCopy = {...obj}
+console.log(arrCopy)
+console.log(objCopy)
 //REST
-const [first, second, ...rest] = obj
-const {name, ...resta} = arr
+const [first, second, ...restArr] = arr
+const {name, ...restObj} = obj
 console.log(first)
-console.log(rest)
+console.log(second)
+console.log(restArr)
 console.log(name)
-console.log(resta)
+console.log(restObj)
 //DESTRUCTURING
-const [a,b] = obj
-const {id, description} = arr
+const [a,b] = arr
+const {id, description} = obj
 console.log(a)
 console.log(b)
 console.log(id)
