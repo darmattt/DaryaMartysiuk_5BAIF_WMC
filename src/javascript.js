@@ -35,5 +35,26 @@ const arrs = {...arr}
 //REST
 const [first, second, ...rest] = obj
 const {name, ...resta} = arr
-console.log(name)
-console.log(resta)
+// console.log(name)
+// console.log(resta)
+//DESTRUCTURING
+const [a,b] = obj
+const {id, description} = arr
+// console.log(id)
+// console.log(description)
+
+
+function sum(prods){
+    let sum = 0
+    if(prods.length===0){
+        throw new Error("There should be more than one element!")
+    }
+    for(let prod of prods){
+        if(typeof prod.price !== "number"){
+            throw new Error("Price should be given as a number!")
+        }
+        sum+=prod.price
+    }
+    return sum
+}
+console.log(sum(products))
